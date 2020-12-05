@@ -18,6 +18,8 @@ class CreateTasksTable extends Migration
             $table->string('what');
             $table->string('how');
             $table->timestamp('deadline');
+            $table->boolean('isCompleted');
+            $table->boolean('isArchived');
             $table->timestamps();
         });
     }

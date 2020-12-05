@@ -22,14 +22,14 @@ class tasksTest extends TestCase
 
         $this->assertCount(3, $taskList);
 
-        // the view has list of tasks
         // it renders the list of tasks
 
         $response = $this->get('tasks');
         $response->assertStatus(200);
 
-        // $taskList = task::all();
+        $taskList = Task::all();
 
-        // $response->assertViewHas('tasks', $taskList);
-    }
+        $response->assertViewHas('taskList', $taskList)
+                 ->assertSee($taskList[0]->what);
+    }   
 }
