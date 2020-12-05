@@ -16,20 +16,20 @@ class tasksTest extends TestCase
      *
      * @return void
      */
-    public function test_homepage_show_task_list()
+    public function test_user_can_see_task_list()
     {
         $taskList = Task::factory(3)->create();
 
         $this->assertCount(3, $taskList);
 
-        // the route is correct
-        // it calls the right view
         // the view has list of tasks
         // it renders the list of tasks
 
-        $response = $this->get('/tasks');
-
+        $response = $this->get('tasks');
         $response->assertStatus(200);
 
+        // $taskList = task::all();
+
+        // $response->assertViewHas('tasks', $taskList);
     }
 }
