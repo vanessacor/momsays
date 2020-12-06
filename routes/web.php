@@ -22,3 +22,5 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/tasks', [App\Http\Controllers\TaskController::class, 'index'])->name('tasks');
+
+Route::post('/tasks/{id}', [App\Http\Controllers\TaskController::class, 'assign',])->middleware('auth')->name('tasksPost');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
+use GuzzleHttp\Middleware;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
@@ -12,6 +13,8 @@ class TaskController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
     public function index()
     {
         $taskList = Task::all();
@@ -23,6 +26,18 @@ class TaskController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function assign(Request $request, $id)
+    {
+        $user = $request->user();
+
+        if ($user->tasks()->find($id)) {
+            return view('welcome');
+        }
+        $user->tasks()->attach($id);
+        return view('home');
+    }
+
     public function create()
     {
         //

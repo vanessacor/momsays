@@ -25,8 +25,7 @@ class TaskFactory extends Factory
             'what' => $this->faker->sentence(5),
             'how' => $this->faker->text,
             'deadline' => $this->faker->date,
-            'isCompleted' => false,
-            'isArchived' => false,
+            
         ];
     }
 }

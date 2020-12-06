@@ -9,7 +9,11 @@
             <div class="card-body">
                 <h5 class="card-title">{{$task->what}}</h5>
                 <p class="card-text">{{$task->how}}</p>
-                <a href="#" class="btn btn-primary">Just do it</a>
+                <form action="{{route('tasks')}}/{{$task->id}}" method="post">
+                    @csrf
+                    <button type="submit" class="btn btn-primary">add</button>
+
+                </form>
             </div>
         </div>
         @endforeach
