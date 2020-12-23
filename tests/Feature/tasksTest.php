@@ -36,6 +36,9 @@ class tasksTest extends TestCase
         $task = $tasks[0];
         $response = $this->actingAs($user)
             ->post(route('tasksPost', $task->id))
-            ->assertStatus(200);
+            ->assertStatus(200)
+            ->assertViewIs('profile')
+            ->assertViewHas('user');
+
     }
 }
