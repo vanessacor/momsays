@@ -1,0 +1,41 @@
+.title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.login {
+    border: 2px solid;
+
+    form {
+        margin-bottom: 40px;
+    }
+
+    &-title {
+        background-color: $green;
+        text-align: center;
+    }
+
+    &-password {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    &-buttons {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        button {
+            background-color: $green;
+        }
+    }
+}
+
+.register {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    a {
+        margin-left: 5px;
+    }
+}
