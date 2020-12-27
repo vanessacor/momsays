@@ -32,10 +32,10 @@ class TaskController extends Controller
         $user = $request->user();
 
         if ($user->tasks()->find($id)) {
-            return view('welcome');
+            return back();
         }
         $user->tasks()->attach($id);
-        return view('home');
+        return view('profile', ['user' => $user]);
     }
 
     public function create()
