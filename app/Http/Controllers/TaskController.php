@@ -18,8 +18,6 @@ class TaskController extends Controller
     public function index()
     {
         $taskList = Task::doesntHave('user')->get();
-
-        
        
         return view('tasks.tasks', ['taskList' => $taskList]);
     }
@@ -36,9 +34,18 @@ class TaskController extends Controller
 
         $task = Task::find($id);
         $user->addTask($task);
-        $userTaskList = $user->tasks()->get();
-        return view('profile', ['user' => $user, 'userTaskList' => $userTaskList]);
+        // $userTaskList = $user->tasks()->get();
+        // return view('profile', ['user' => $user, 'userTaskList' => $userTaskList]);
+        return redirect()->route('profile', $user->id);
        
+    }
+
+    public function markAsDone($id)
+    {     
+        $task = Task::find($id);
+        $task->markAsDone();
+        $task->save();
+        return back();
     }
 
     public function create()

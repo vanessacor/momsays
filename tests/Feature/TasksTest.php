@@ -6,9 +6,9 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Str;
 
-use Tests\TestCase;
 use App\Models\Task;
 use App\Models\User;
+use Tests\TestCase;
 
 class tasksTest extends TestCase
 {
@@ -45,10 +45,10 @@ class tasksTest extends TestCase
         $task = $tasks[0];
         $response = $this->actingAs($user)
             ->post(route('tasksPost', $task->id))
-            ->assertStatus(200)
-            ->assertViewIs('profile')
-            ->assertViewHas('user');
+            ->assertStatus(302);
+           
         $this->assertDatabaseHas('tasks', [
             'user_id' => $user->id ]);
     }
+   
 }

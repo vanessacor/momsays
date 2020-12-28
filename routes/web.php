@@ -24,4 +24,6 @@ Auth::routes();
 Route::middleware('auth')->group(function () {
     Route::get('/tasks', [App\Http\Controllers\TaskController::class, 'index'])->name('tasks');
     Route::post('/tasks/{id}', [App\Http\Controllers\TaskController::class, 'assign',])->name('tasksPost');
+    Route::get('/user/{id}', [App\Http\Controllers\UserController::class, 'index'])->name('profile');
+    Route::post('/user/{id}', [App\Http\Controllers\TaskController::class, 'markAsdone'])->name('taskDone');
 });
