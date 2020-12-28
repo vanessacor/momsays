@@ -37,7 +37,7 @@ class tasksTest extends TestCase
             ->assertViewHas('taskList');
     }
 
-    public function test_user_can_assign_themselves_to_task()
+    public function testRegisterUserCanAssignThemselvesToASpecificTask()
     {
 
         $tasks = Task::factory(1)->create();

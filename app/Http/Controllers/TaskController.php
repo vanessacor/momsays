@@ -17,7 +17,8 @@ class TaskController extends Controller
 
     public function index()
     {
-        $taskList = Task::all();
+        $taskList = Task::doesntHave('user')->get();
+
         
        
         return view('tasks.tasks', ['taskList' => $taskList]);

@@ -7,8 +7,8 @@
         @foreach($taskList as $task)
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">{{$task->what}}</h5>
-                <p class="card-text">{{$task->how}}</p>
+                <h5 class="card-title">{{$task->title}}</h5>
+                <p class="card-text">{{$task->what}}</p>
                 <form action="{{route('tasks')}}/ {{$task->id}}" method="post">
                     @csrf
                     <button type="submit" class="btn btn-primary">do it</button>
