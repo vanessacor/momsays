@@ -1,0 +1,37 @@
+.card {
+    border: 2px solid $black;
+    margin-bottom: 30px;
+    &-title {
+        text-align: center;
+        padding: 10px;
+    }
+
+    &-details {
+        display: flex;
+        flex-direction: row;
+        padding: 0 20px;
+    p:last-child {
+            margin-left: 10px;
+        }
+    }
+
+    &-actions{
+        margin-bottom: 30px;
+        padding-top: 20px;
+        text-align: center;
+
+        button {
+            width: 80%;
+            border: none;
+            padding: 10px;
+        }
+    }
+}
+
+.odd {
+    background-color: getRandomColor();
+}
+
+.even {
+    background-color: getRandomColor();
+}
