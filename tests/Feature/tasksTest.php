@@ -4,10 +4,11 @@ namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Str;
+
 use Tests\TestCase;
 use App\Models\Task;
 use App\Models\User;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
 
 class tasksTest extends TestCase
 {
@@ -18,11 +19,19 @@ class tasksTest extends TestCase
      *
      * @return void
      */
-    public function test_user_can_see_task_list()
+    public function testRegisteredUsersCanSeeUnsignedTaskList()
     {
         Task::factory(3)->create();
+        $user = User::create([
+            'name' => 'vanessa',
+            'points' => 0, 
+            'email' => 'van@ff.org',
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+            'remember_token' => Str::random(10)
+        ]);
 
-        $response = $this->get('tasks');
+        $response = $this->actingAs($user)
+            ->get('tasks');
         $response->assertStatus(200)
             ->assertViewIs('tasks.tasks')
             ->assertViewHas('taskList');
@@ -39,6 +48,7 @@ class tasksTest extends TestCase
             ->assertStatus(200)
             ->assertViewIs('profile')
             ->assertViewHas('user');
-
+        $this->assertDatabaseHas('tasks', [
+            'user_id' => $user->id ]);
     }
 }

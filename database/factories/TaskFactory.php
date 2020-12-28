@@ -22,9 +22,10 @@ class TaskFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->sentence(5),
-            'what' => $this->faker->text,
+            'title' => $this->faker->sentence(1),
+            'what' => $this->faker->sentence(2),
             'deadline' => $this->faker->date,
+            'points' => $this->faker->numberBetween($min = 1, $max = 10),
             
         ];
     }

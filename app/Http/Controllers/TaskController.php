@@ -18,6 +18,8 @@ class TaskController extends Controller
     public function index()
     {
         $taskList = Task::all();
+        
+       
         return view('tasks.tasks', ['taskList' => $taskList]);
     }
 
@@ -31,11 +33,11 @@ class TaskController extends Controller
     {
         $user = $request->user();
 
-        if ($user->tasks()->find($id)) {
-            return back();
-        }
-        $user->tasks()->attach($id);
-        return view('profile', ['user' => $user]);
+        $task = Task::find($id);
+        $user->addTask($task);
+        $userTaskList = $user->tasks()->get();
+        return view('profile', ['user' => $user, 'userTaskList' => $userTaskList]);
+       
     }
 
     public function create()

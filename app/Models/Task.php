@@ -13,12 +13,15 @@ class Task extends Model
         'title',
         'what',
         'deadline',
+        'points',
         'isCompleted',
         'isreviewed'
     ];
 
-    public function users()
+    public function user()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsTo(User::class);
     }
+
+    
 }
