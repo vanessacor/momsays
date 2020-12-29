@@ -50,5 +50,27 @@ class tasksTest extends TestCase
         $this->assertDatabaseHas('tasks', [
             'user_id' => $user->id ]);
     }
-   
+    public function testRegisteredUsersCanMarkSpecificTaskAsDone()
+    {
+        $tasks = Task::factory(3)->create();
+        $user = User::factory()->create();
+        $task = $tasks[2];
+        $this->actingAs($user)->post(route('tasksPost', $task->id));
+        $response = $this->post(route('taskDone', $task->id))
+            ->assertStatus(302);
+            $this->assertDatabaseHas('tasks', [
+                'isCompleted' => true ])            ;
+    }
+    public function testRegisteredUsersCanMarkSpecificTaskAsUndone()
+    {
+        $tasks = Task::factory(3)->create();
+        $user = User::factory()->create();
+        $task = $tasks[2];
+        $this->actingAs($user)->post(route('tasksPost', $task->id));
+        $this->post(route('taskDone', $task->id));
+        $response = $this->post(route('taskDone', $task->id))
+            ->assertStatus(302);
+            $this->assertDatabaseHas('tasks', [
+                'isCompleted' => false ])            ;
+    }
 }

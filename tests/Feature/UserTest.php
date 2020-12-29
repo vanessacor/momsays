@@ -29,15 +29,5 @@ class userTest extends TestCase
             ->assertStatus(200)
             ->assertViewIs('users.userTasks');
     }
-    public function testRegisteredUsersCanMarkSpecificTaskAsDone()
-    {
-        $tasks = Task::factory(3)->create();
-        $user = User::factory()->create();
-        $task = $tasks[2];
-        $this->actingAs($user)->post(route('tasksPost', $task->id));
-        $response = $this->post(route('taskDone', $task->id))
-            ->assertStatus(302);
-            $this->assertDatabaseHas('tasks', [
-                'isCompleted' => true ])            ;
-    }
+
 }
