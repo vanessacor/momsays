@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h2 class="title">Task List</h2>
+    <x-title text="Task List" />
     <div class="task-list">
         @foreach($taskList as $task)
         <x-taskCard :task="$task" />
