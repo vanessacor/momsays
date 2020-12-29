@@ -24,7 +24,7 @@ class tasksTest extends TestCase
         Task::factory(3)->create();
         $user = User::create([
             'name' => 'vanessa',
-            'points' => 0, 
+            'points' => 0,
             'email' => 'van@ff.org',
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
             'remember_token' => Str::random(10)
@@ -46,9 +46,10 @@ class tasksTest extends TestCase
         $response = $this->actingAs($user)
             ->post(route('tasksPost', $task->id))
             ->assertStatus(302);
-           
+
         $this->assertDatabaseHas('tasks', [
-            'user_id' => $user->id ]);
+            'user_id' => $user->id
+        ]);
     }
     public function testRegisteredUsersCanMarkSpecificTaskAsDone()
     {
@@ -58,8 +59,9 @@ class tasksTest extends TestCase
         $this->actingAs($user)->post(route('tasksPost', $task->id));
         $response = $this->post(route('taskDone', $task->id))
             ->assertStatus(302);
-            $this->assertDatabaseHas('tasks', [
-                'isCompleted' => true ])            ;
+        $this->assertDatabaseHas('tasks', [
+            'isCompleted' => true
+        ]);
     }
     public function testRegisteredUsersCanMarkSpecificTaskAsUndone()
     {
@@ -70,7 +72,36 @@ class tasksTest extends TestCase
         $this->post(route('taskDone', $task->id));
         $response = $this->post(route('taskDone', $task->id))
             ->assertStatus(302);
-            $this->assertDatabaseHas('tasks', [
-                'isCompleted' => false ])            ;
+        $this->assertDatabaseHas('tasks', [
+            'isCompleted' => false
+        ]);
+    }
+   
+    public function testAdultUsersCanCreateTask()
+    {
+        $data = [
+            'title' => "Make Dinner",
+            'what' => "Make a vegetarian dinner",
+            'deadline' => "2021-12-11",
+            'points' => 12,
+        ];
+        
+        $adult = User::create([
+            'name' => 'lorena',
+            'role' => 'adult',
+            'points' => 0,
+            'email' => 'criado@gmail.com',
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+            'remember_token' => Str::random(10)
+        ]);
+
+        $response = $this->actingAs($adult)
+            ->post(route('save.task', $data))
+            ->assertStatus(302);
+        $this->assertDatabaseCount('tasks', 1)
+            ->assertDatabaseHas('tasks', [
+            'title' => "Make Dinner"
+        ]);
+
     }
 }

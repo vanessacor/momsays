@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class isAdult
+class CheckIsAdult
 {
     /**
      * Handle an incoming request.
@@ -17,7 +17,7 @@ class isAdult
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user() == null || !Auth::user()->role =='child') {
+        if (Auth::user() == null || Auth::user()->role === "child") {
             return redirect('tasks');
         }
         return $next($request);

@@ -27,3 +27,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/user/{id}/tasks', [App\Http\Controllers\UserController::class, 'index'])->name('userTasks');
     Route::post('/user/{id}', [App\Http\Controllers\TaskController::class, 'markAsdone'])->name('taskDone');
 });
+
+Route::middleware('adult')->group(function () {
+    Route::get('/adults/create', [App\Http\Controllers\TaskController::class, 'create'])->name('create.task');
+    Route::post('/adults/create', [App\Http\Controllers\TaskController::class, 'store',])->name('save.task');
+});

@@ -8,7 +8,9 @@
         <x-taskCard :task="$task" />
         @endforeach
     </div>
-
+@if(Auth::User()->role == 'adult')
+    <a href="{{route('create.task')}}">New Task</a>
+@endif
 </div>
 
 @endsection

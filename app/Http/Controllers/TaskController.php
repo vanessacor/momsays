@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
+use App\Http\Requests\StoreTaskRequest;
+
 use GuzzleHttp\Middleware;
 use Illuminate\Http\Request;
 
@@ -18,7 +20,7 @@ class TaskController extends Controller
     public function index()
     {
         $taskList = Task::doesntHave('user')->get();
-       
+
         return view('tasks.tasks', ['taskList' => $taskList]);
     }
 
@@ -37,11 +39,10 @@ class TaskController extends Controller
         // $userTaskList = $user->tasks()->get();
         // return view('profile', ['user' => $user, 'userTaskList' => $userTaskList]);
         return redirect()->route('userTasks', $user->id);
-       
     }
 
     public function markAsDone($id)
-    {     
+    {
         $task = Task::find($id);
         $task->markAsDone();
         $task->save();
@@ -50,18 +51,20 @@ class TaskController extends Controller
 
     public function create()
     {
-        //
+        return view('tasks.taskForm');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param   \App\Http\Requests\StoreTaskRequest  $request 
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreTaskRequest $request)
     {
-        //
+        $validated = $request->validated();
+        Task::create($request->all());
+        return back();
     }
 
     /**
