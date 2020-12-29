@@ -25,9 +25,14 @@ class Task extends Model
 
     public function markAsDone()
     {
-        $this->isCompleted = true;
+        $this->isCompleted =  !$this->isCompleted;
                 
     }
 
-    
+    protected $dates = [
+        'deadline',
+    ];
+
+    protected $dateFormat = 'Y-m-d';
+
 }

@@ -12,9 +12,12 @@
         <p>{{ $task->what}}</p>
     </section>
     <section class="card-details">
+        <h4>Points:</h4>
+        <p>{{ $task->points}}</p>
+    </section>
+    <section class="card-details">
         <h4>Deadline:</h4>
         <p>{{ $task->deadline}}</p>
-
     </section>
     <section class="card-actions">
         <form action="{{route('tasks')}}/ {{ $task->id}}" method="post">

@@ -7,13 +7,16 @@
 <div class="item {{$class}}">
     <section class="item-card">
         <h3>{{$task->title}}</h3>
-        @if($task->isCompleted)
-        <h4 class="item-card-completed">Completed</h4>
-        @else
-        <form action="{{route('taskDone', $task->id)}}" method="post" class="item-card-done">
+       
+        <form action="{{route('taskDone', $task->id)}}" method="post" class="toggle">
             @csrf
-            <button type="submit" >Done</button>
+            <button 
+                class="toggle-button @if($task->isCompleted) toggle-button-completed @else toggle-button-done @endif" 
+                type="submit">
+                <span className="circle"></span>
+            </button>
         </form>
-        @endif
+    
     </section>
 </div>
+
