@@ -1,8 +1,0 @@
-
-@function getRandomColor() {
-    $colors: ($red, $blue, $yellow, $orange, $green);
-    $key: random( length($colors) );
-    $nth: nth( $colors, $key );
-    @return $nth;
-}
-

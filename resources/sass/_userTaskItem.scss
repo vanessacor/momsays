@@ -1,0 +1,19 @@
+.item {
+    border: 2px solid $black;
+    margin-bottom: 30px;
+
+    &-card {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+
+        h3 {
+            align-self: center;
+        }
+
+        &-completed,
+        &-done {
+            align-self: flex-end;
+        }
+    }
+}

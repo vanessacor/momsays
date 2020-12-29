@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="container">
-    <h2>Task List</h2>
-    <div>
+    <h2 class="title">Task List</h2>
+    <div class="task-list">
         @foreach($taskList as $task)
         <x-taskCard :task="$task" />
         @endforeach

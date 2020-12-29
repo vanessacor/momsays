@@ -1,0 +1,11 @@
+.title {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.task-list {
+    justify-content: space-evenly;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

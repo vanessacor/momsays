@@ -17,6 +17,6 @@ class UserController extends Controller
     {
         $user = $request->user();
         $userTaskList = $user->tasks()->get();
-        return view('profile', ['user' => $user, 'userTaskList' => $userTaskList]);
+        return view('users.userTasks', ['user' => $user, 'userTaskList' => $userTaskList]);
     }
 }

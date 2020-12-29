@@ -1,6 +1,8 @@
 .card {
+    margin: 0 20px 30px;
+    max-width: 300px;
     border: 2px solid $black;
-    margin-bottom: 30px;
+
     &-title {
         text-align: center;
         padding: 10px;
@@ -10,28 +12,67 @@
         display: flex;
         flex-direction: row;
         padding: 0 20px;
-    p:last-child {
+        p:last-child {
             margin-left: 10px;
         }
     }
 
-    &-actions{
+    &-actions {
         margin-bottom: 30px;
         padding-top: 20px;
         text-align: center;
 
         button {
             width: 80%;
-            border: none;
+            border: 2px solid $black;
             padding: 10px;
         }
     }
 }
 
-.odd {
-    background-color: getRandomColor();
+.red {
+    .item-card,
+    .card-title,
+    .card-actions button {
+        background-color: $red;
+    }
 }
 
-.even {
-    background-color: getRandomColor();
+.green {
+    .item-card,
+    .card-title,
+    .card-actions button {
+        background-color: $green;
+    }
+}
+
+.yellow {
+    .item-card,
+    .card-title,
+    .card-actions button {
+        background-color: $yellow;
+    }
+}
+.blue {
+    .item-card,
+    .card-title,
+    .card-actions button {
+        background-color: $blue;
+    }
+}
+
+.orange {
+    .item-card,
+    .card-title,
+    .card-actions button {
+        background-color: $orange;
+    }
+}
+
+.pink {
+    .item-card,
+    .card-title,
+    .card-actions button {
+        background-color: $pink;
+    }
 }

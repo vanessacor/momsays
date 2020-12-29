@@ -10947,9 +10947,22 @@ a.text-dark:focus {
   margin-left: 5px;
 }
 
+.title {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.task-list {
+  justify-content: space-evenly;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 .card {
+  margin: 0 20px 30px;
+  max-width: 300px;
   border: 2px solid #292929;
-  margin-bottom: 30px;
 }
 
 .card-title {
@@ -10975,15 +10988,63 @@ a.text-dark:focus {
 
 .card-actions button {
   width: 80%;
-  border: none;
+  border: 2px solid #292929;
   padding: 10px;
 }
 
-.odd {
+.red .item-card,
+.red .card-title,
+.red .card-actions button {
+  background-color: #e3342f;
+}
+
+.green .item-card,
+.green .card-title,
+.green .card-actions button {
+  background-color: #1ab65b;
+}
+
+.yellow .item-card,
+.yellow .card-title,
+.yellow .card-actions button {
+  background-color: #ffed4a;
+}
+
+.blue .item-card,
+.blue .card-title,
+.blue .card-actions button {
   background-color: #3490dc;
 }
 
-.even {
+.orange .item-card,
+.orange .card-title,
+.orange .card-actions button {
   background-color: #f6993f;
+}
+
+.pink .item-card,
+.pink .card-title,
+.pink .card-actions button {
+  background-color: #f66d9b;
+}
+
+.item {
+  border: 2px solid #292929;
+  margin-bottom: 30px;
+}
+
+.item-card {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.item-card h3 {
+  align-self: center;
+}
+
+.item-card-completed,
+.item-card-done {
+  align-self: flex-end;
 }
 
