@@ -23,7 +23,7 @@ Auth::routes();
 
 Route::middleware('auth')->group(function () {
     Route::get('/tasks', [App\Http\Controllers\TaskController::class, 'index'])->name('tasks');
-    Route::post('/tasks/{id}', [App\Http\Controllers\TaskController::class, 'assign',])->name('tasksPost');
+    Route::post('/tasks/{id}', [App\Http\Controllers\TaskController::class, 'assign',])->name('assignTask');
     Route::get('/user/{id}/tasks', [App\Http\Controllers\UserController::class, 'index'])->name('userTasks');
     Route::post('/user/{task}', [App\Http\Controllers\TaskController::class, 'toggleCompletion'])->name('taskDone');
 });

@@ -44,7 +44,7 @@ class tasksTest extends TestCase
         $user = User::factory()->create();
         $task = $tasks[0];
         $response = $this->actingAs($user)
-            ->post(route('tasksPost', $task->id))
+            ->post(route('assignTask', $task->id))
             ->assertStatus(302);
 
         $this->assertDatabaseHas('tasks', [
@@ -56,7 +56,7 @@ class tasksTest extends TestCase
         $tasks = Task::factory(3)->create();
         $user = User::factory()->create();
         $task = $tasks[2];
-        $this->actingAs($user)->post(route('tasksPost', $task->id));
+        $this->actingAs($user)->post(route('assignTask', $task->id));
         $response = $this->post(route('taskDone', $task->id))
             ->assertStatus(302);
         $this->assertDatabaseHas('tasks', [
@@ -68,7 +68,7 @@ class tasksTest extends TestCase
         $tasks = Task::factory(3)->create();
         $user = User::factory()->create();
         $task = $tasks[2];
-        $this->actingAs($user)->post(route('tasksPost', $task->id));
+        $this->actingAs($user)->post(route('assignTask', $task->id));
         $this->post(route('taskDone', $task->id));
         $response = $this->post(route('taskDone', $task->id))
             ->assertStatus(302);
@@ -76,7 +76,7 @@ class tasksTest extends TestCase
             'isCompleted' => false
         ]);
     }
-   
+
     public function testAdultUsersCanCreateTask()
     {
         $data = [
@@ -85,7 +85,7 @@ class tasksTest extends TestCase
             'deadline' => "2021-12-11",
             'points' => 12,
         ];
-        
+
         $adult = User::create([
             'name' => 'lorena',
             'role' => 'adult',
@@ -100,8 +100,7 @@ class tasksTest extends TestCase
             ->assertStatus(302);
         $this->assertDatabaseCount('tasks', 1)
             ->assertDatabaseHas('tasks', [
-            'title' => "Make Dinner"
-        ]);
-
+                'title' => "Make Dinner"
+            ]);
     }
 }

@@ -24,7 +24,7 @@ class userTest extends TestCase
         $tasks = Task::factory(1)->create();
         $user = User::factory()->create();
         $task = $tasks[0];
-        $this->actingAs($user)->post(route('tasksPost', $task->id));
+        $this->actingAs($user)->post(route('assignTask', $task->id));
         $response = $this->get(route('userTasks', $user->id))
             ->assertStatus(200)
             ->assertViewIs('users.userTasks');
@@ -35,13 +35,34 @@ class userTest extends TestCase
         $tasks = Task::factory(1)->create();
         $user = User::factory()->create();
         $task = $tasks[0];
-        $points = $task->points;
-        $this->actingAs($user)->post(route('tasksPost', $task->id));
-
-        $response = $this->post(route('taskDone', $task->id));
+        $this->actingAs($user)->post(route('assignTask', $task->id));
+        $this->post(route('taskDone', $task->id));
         $this->assertDatabaseHas('users', [
             'id' => $user->id,
             'points' => $task->points
+        ]);
+    }
+
+
+
+    public function testRegisteredUsersLoosePointsWhenMarkTaskAsUndone()
+    {
+        $tasks = Task::factory(1)->create();
+        $user = User::create([
+            'name' => 'vanessa',
+            'points' => 10,
+            'email' => 'van@ff.org',
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+            'remember_token' => Str::random(10)
+        ]);
+        $task = $tasks[0];
+        $this->actingAs($user)->post(route('assignTask', $task->id));
+        $this->post(route('taskDone', $task->id));
+
+        $this->post(route('taskDone', $task->id));
+        $this->assertDatabaseHas('users', [
+            'id' => $user->id,
+            'points' => 10
         ]);
     }
 }
