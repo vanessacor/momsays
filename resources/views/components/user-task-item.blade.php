@@ -12,9 +12,9 @@ $class = $classList[$randomIndex];
         </div>
         <h3>{{$task->title}}</h3>
 
-        <form action="{{route('taskDone', $task->id)}}" method="post" class="toggle">
+        <form action="{{route('taskDone', $task)}}" method="post" class="toggle">
             @csrf
-            <button class="toggle-button @if($task->isCompleted) toggle-button-completed @else toggle-button-done @endif" type="submit">
+            <button class="toggle-button @if($task->isCompleted) toggle-button-done  @else toggle-button-completed @endif" type="submit">
                 <span className="circle"></span>
             </button>
         </form>

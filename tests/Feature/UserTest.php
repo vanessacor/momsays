@@ -44,7 +44,6 @@ class userTest extends TestCase
     }
 
 
-
     public function testRegisteredUsersLoosePointsWhenMarkTaskAsUndone()
     {
         $tasks = Task::factory(1)->create();

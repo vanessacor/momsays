@@ -44,8 +44,6 @@ class TaskController extends Controller
         $user = $request->user();
 
         $task->toggleCompletion();
-
-
         if ($task->isCompleted) {
             $user->addPoints($task->points);
             return back();

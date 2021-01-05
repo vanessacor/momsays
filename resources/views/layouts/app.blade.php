@@ -54,6 +54,13 @@
                         </li>
                         @endif
                         @else
+                            @if(Auth::user()->role == "adult")
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    Control Room
+                                </a>
+                            </li>
+                            @endif
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('userTasks', Auth::user()->id ) }}">
                                 My Tasks
