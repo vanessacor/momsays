@@ -12,7 +12,7 @@
             @enderror
         </div>
         <div class="mb-3">
-            <label for="validationServer02">Whate</label>
+            <label for="validationServer02">What</label>
             <textarea type="text" class="@error('description') is-invalid @enderror form-control" id="validationServer01" value="{{ old('what') }}" required name="what"></textarea>
             @error('what')
             <p class="invalid-feedback">{{$message}}</p>

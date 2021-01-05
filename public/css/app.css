@@ -11039,8 +11039,24 @@ a.text-dark:focus {
 }
 
 .item-card h3 {
-  text-align: center;
-  margin-bottom: 40px;
+  margin: 0 0 40px 70px;
+}
+
+.item-card .points {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  background-color: #fff;
+  width: 50px;
+  height: 50px;
+  border-radius: 350%;
+  color: #292929;
+  font-weight: bolder;
+}
+
+.item-card .points > * {
+  margin: auto;
 }
 
 .item-card .toggle {
@@ -11056,7 +11072,7 @@ a.text-dark:focus {
   height: 40px;
   padding: 5px;
   border: none;
-  border-radius: 22px;
+  border-radius: 3px;
 }
 
 .item-card .toggle-button-completed {
@@ -11070,7 +11086,7 @@ a.text-dark:focus {
   width: 22px;
   height: 22px;
   background-color: white;
-  border-radius: 22px;
+  border-radius: 3px;
 }
 
 .item-card .toggle-button-completed span::before {
@@ -11082,7 +11098,7 @@ a.text-dark:focus {
 }
 
 .item-card .toggle-button-done {
-  background-color: #ada9a9;
+  background-color: #292929b3;
 }
 
 .item-card .toggle-button-done span {
@@ -11092,7 +11108,7 @@ a.text-dark:focus {
   width: 22px;
   height: 22px;
   background-color: white;
-  border-radius: 22px;
+  border-radius: 3px;
 }
 
 .item-card .toggle-button-done span::before {
@@ -11100,6 +11116,6 @@ a.text-dark:focus {
   position: absolute;
   left: -54px;
   top: 0px;
-  color: #292929;
+  color: #fff;
 }
 

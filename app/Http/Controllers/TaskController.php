@@ -36,8 +36,6 @@ class TaskController extends Controller
 
         $task = Task::find($id);
         $user->addTask($task);
-        // $userTaskList = $user->tasks()->get();
-        // return view('profile', ['user' => $user, 'userTaskList' => $userTaskList]);
         return redirect()->route('userTasks', $user->id);
     }
 

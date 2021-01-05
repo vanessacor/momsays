@@ -35,7 +35,7 @@ class StoreTaskRequest extends FormRequest
     public function messages()
     {
         return [
-            'title.required' => 'Ttitle is required!',
+            'title.required' => 'Title is required!',
             'what.required' => 'description is required!',
             'deadline.required' => 'Deadline is required!',
             'points.required' => 'Points is required!'
