@@ -30,4 +30,18 @@ class userTest extends TestCase
             ->assertViewIs('users.userTasks');
     }
 
+    public function testRegisteredUsersGeTPointsWhenMarkTaskAsDone()
+    {
+        $tasks = Task::factory(1)->create();
+        $user = User::factory()->create();
+        $task = $tasks[0];
+        $points = $task->points;
+        $this->actingAs($user)->post(route('tasksPost', $task->id));
+
+        $response = $this->post(route('taskDone', $task->id));
+        $this->assertDatabaseHas('users', [
+            'id' => $user->id,
+            'points' => $task->points
+        ]);
+    }
 }

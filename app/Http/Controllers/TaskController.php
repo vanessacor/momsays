@@ -39,11 +39,19 @@ class TaskController extends Controller
         return redirect()->route('userTasks', $user->id);
     }
 
-    public function markAsDone($id)
+    public function toggleCompletion(Request $request, Task $task)
     {
-        $task = Task::find($id);
-        $task->markAsDone();
-        $task->save();
+        $user = $request->user();
+
+        $task->toggleCompletion();
+
+
+        if ($task->isCompleted) {
+            $user->addPoints($task->points);
+            return back();
+        }
+
+        $user->removePoints($task->points);
         return back();
     }
 

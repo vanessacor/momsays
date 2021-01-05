@@ -23,10 +23,10 @@ class Task extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function markAsDone()
+    public function toggleCompletion()
     {
         $this->isCompleted =  !$this->isCompleted;
-                
+        $this->save();
     }
 
     protected $dates = [

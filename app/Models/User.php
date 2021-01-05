@@ -52,4 +52,14 @@ class User extends Authenticatable
     {
         return $this->tasks()->save($task);
     }
+    
+    public function addPoints($points) {
+        $this->points += $points;
+        return $this->save();
+    }
+
+    public function removePoints($points) {
+        $this->points -= $points;
+        return $this->save();
+    }
 }
