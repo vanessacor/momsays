@@ -19,14 +19,14 @@ class TaskController extends Controller
 
     public function index()
     {
-        $taskList = Task::doesntHave('user')->get();
+        $taskList = Task::doesntHave('user')->orderBy('deadline', 'asc')->get();
         return view('tasks.tasks', ['taskList' => $taskList]);
     }
 
 
     public function dashboardIndex()
     {
-        $taskList = Task::all();
+        $taskList = Task::orderBy('deadline', 'asc')->get();
         return view('dashboard.taskList', ['taskList' => $taskList]);
     }
     /**
