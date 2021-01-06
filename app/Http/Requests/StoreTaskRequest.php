@@ -25,10 +25,10 @@ class StoreTaskRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'what' => 'required',
+            'instructions' => 'required',
             'deadline' => 'required|date|after:now',
             'points' => 'required|gte:0',
-            
+
         ];
     }
 
@@ -36,7 +36,7 @@ class StoreTaskRequest extends FormRequest
     {
         return [
             'title.required' => 'Title is required!',
-            'what.required' => 'description is required!',
+            'instructions.required' => 'description is required!',
             'deadline.required' => 'Deadline is required!',
             'points.required' => 'Points is required!'
         ];

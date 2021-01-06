@@ -2,7 +2,7 @@
     <td>
         {{ $task->title}}
     </td>
-    <td>{{ $task->what}}</td>
+    <td>{{ $task->instructions}}</td>
     <td>{{ $task->points}}</td>
     <td> @if($task->user)
         {{ $task->user->name}}
@@ -26,9 +26,7 @@
             @csrf
             <button type="submit" class="delete-btn ">Delete</button>
 
-        </form> 
+        </form>
 
     </td>
 </tr>
-
-

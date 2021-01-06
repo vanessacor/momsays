@@ -11,7 +11,7 @@ class Task extends Model
 
     protected $fillable = [
         'title',
-        'what',
+        'instructions',
         'deadline',
         'points',
         'isCompleted',
@@ -21,7 +21,7 @@ class Task extends Model
     protected $dates = [
         'deadline',
     ];
-    
+
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -38,5 +38,5 @@ class Task extends Model
     //     $this->attributes['date'] = (new Carbon($value))->format('d/m/y');
     // }
 
-   
+
 }

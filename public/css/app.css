@@ -11193,3 +11193,21 @@ body {
   color: #fffffe;
 }
 
+.task-form {
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 5px;
+  color: #0f0e17;
+  text-align: left;
+  background-color: #fffffe;
+  border-radius: 5px;
+}
+
+.task-form-btn {
+  background-color: #f25f4c;
+  border-radius: 5px;
+  padding: 10px;
+  border: none;
+  color: #fffffe;
+}
+

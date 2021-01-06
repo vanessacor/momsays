@@ -39,14 +39,14 @@ class AdultTest extends TestCase
             ->assertViewHas('taskList');
     }
 
-     
-    
+
+
 
     public function testAdultUsersCanCreateTask()
     {
         $data = [
             'title' => "Make Dinner",
-            'what' => "Make a vegetarian dinner",
+            'instructions' => "Make a vegetarian dinner",
             'deadline' => "2021-12-11",
             'points' => 12,
         ];
@@ -84,9 +84,8 @@ class AdultTest extends TestCase
         ]);
 
         $response = $this->actingAs($adult)
-        ->delete(route('delete.task', $task->id))
-        ->assertStatus(302);
+            ->delete(route('delete.task', $task->id))
+            ->assertStatus(302);
         $this->assertDatabaseCount('tasks', 0);
     }
-
 }

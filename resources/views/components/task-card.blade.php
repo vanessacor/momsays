@@ -1,12 +1,10 @@
-
-
 <article class="task-card {{$class}}" id=" {{$task->id}}}">
     <header class="task-card-title">
-        <h2 >{{ $task->title}}</h2>
-</header>
+        <h2>{{ $task->title}}</h2>
+    </header>
     <section class="task-card-details">
         <h4>What:</h4>
-        <p>{{ $task->what}}</p>
+        <p>{{ $task->instructions}}</p>
     </section>
     <section class="task-card-details">
         <h4>Points:</h4>

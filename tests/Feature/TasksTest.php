@@ -81,7 +81,7 @@ class tasksTest extends TestCase
     {
         $data = [
             'title' => "Make Dinner",
-            'what' => "Make a vegetarian dinner",
+            'instructions' => "Make a vegetarian dinner",
             'deadline' => "2021-12-11",
             'points' => 12,
         ];

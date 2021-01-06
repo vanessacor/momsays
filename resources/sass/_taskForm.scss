@@ -1,0 +1,17 @@
+.task-form {
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 5px;
+    color: $dark-color;
+    text-align: left;
+    background-color: $light-color;
+    border-radius: 5px;
+
+  &-btn {
+    background-color: $secondary-color;
+    border-radius: 5px;
+    padding: 10px;
+    border: none;
+    color: $light-color;
+  }
+}
