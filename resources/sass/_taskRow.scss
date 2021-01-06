@@ -1,0 +1,12 @@
+.task-row {
+    background-color: $light-color;
+
+    .delete-btn {
+        background-color: $danger-color;
+        border-radius: 5px;
+        padding: 10px;
+        border: none;
+        color: $light-color;
+    }
+
+}

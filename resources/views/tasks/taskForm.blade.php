@@ -2,7 +2,7 @@
 
 @section('content')
 <x-title text="New Task" />
-<form action="{{ route('save.task') }}" method="POST">
+<form action="{{ route('save.task') }}" class="task-form" method="POST">
         @csrf
         <div class="mb-3">
             <label for="validationServer01">Title</label>

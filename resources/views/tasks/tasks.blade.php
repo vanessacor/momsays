@@ -5,7 +5,7 @@
     <x-title text="Task List" />
     <div class="task-list">
         @foreach($taskList as $task)
-        <x-taskCard :task="$task" />
+        <x-taskCard  :class=" $loop->odd ? 'odd' : 'even' " :task="$task" />
         @endforeach
     </div>
 

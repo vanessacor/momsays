@@ -10,7 +10,7 @@
     }
 
     &-title {
-        background-color: $green;
+        background-color: $highlight-color;
         text-align: center;
     }
 
@@ -25,7 +25,7 @@
         width: 100%;
 
         button {
-            background-color: $green;
+            background-color: $highlight-color;
         }
     }
 }

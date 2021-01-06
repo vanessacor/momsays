@@ -1,0 +1,36 @@
+.dashboard {
+    &-create {
+        margin-bottom: 50px;
+        padding: 10px;
+        background-color: $secondary-color;
+        color: $light-color;
+        border-radius: 5px;
+        border: none;
+
+        a {
+            text-decoration: none;
+            color: $light-color;
+        }
+        &:hover {
+            box-shadow: none;
+
+            a {
+                color: $dark-color;
+            }
+        }
+    }
+
+    &-tasklist {
+        overflow: auto;
+        .table {
+            thead {
+                background-color: $secondary-color;
+                color: $light-color;
+                border: none;
+                text-transform: uppercase;
+            }
+
+            
+        }
+    }
+}

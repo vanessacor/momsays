@@ -23,10 +23,14 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    Mom Says
+                <a class="logo navbar-brand" href="{{ url('/') }}">
+                <img class="logo-img" src="{{url('/images/logo.png')}}" alt="">
+                    <h1>
+                        Mom Says
+                    </h1>
+
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -54,13 +58,13 @@
                         </li>
                         @endif
                         @else
-                            @if(Auth::user()->role == "adult")
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    Control Room
-                                </a>
-                            </li>
-                            @endif
+                        @if(Auth::user()->role == "adult")
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('dashboard.tasks')}}">
+                                Control Room
+                            </a>
+                        </li>
+                        @endif
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('userTasks', Auth::user()->id ) }}">
                                 My Tasks

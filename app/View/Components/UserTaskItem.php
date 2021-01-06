@@ -12,9 +12,11 @@ class UserTaskItem extends Component
      * @return void
      */
     public $task;
-    public function __construct($task)
+    public $class;
+    public function __construct($task, $class)
     {
         $this->task = $task;
+        $this->class = $class;
     }
 
     /**

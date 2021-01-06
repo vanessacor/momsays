@@ -1,10 +1,10 @@
 .item {
     border: 2px solid $black;
     margin-bottom: 30px;
+    border-radius: 5px;
 
     &-card {
         position: relative;
-        
         padding: 20px;
 
         h3 {
@@ -50,7 +50,7 @@
                         height: 22px;
                         background-color: white;
                         border-radius: 3px;
-        
+
                         &::before {
                             content: "Done";
                             position: absolute;
@@ -70,7 +70,7 @@
                         height: 22px;
                         background-color: white;
                         border-radius: 3px;
-        
+
                         &::before {
                             content: "Undone";
                             position: absolute;
@@ -82,8 +82,19 @@
                 }
             }
         }
+    }
+}
 
+.odd {
+    .item-card {
+        color: $light-color;
+        background-color: $secondary-color;
+    }
+}
 
-        
+.even {
+    .item-card {
+        color: $light-color;
+        background-color: $highlight-color;
     }
 }

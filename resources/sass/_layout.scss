@@ -1,0 +1,20 @@
+body {
+    background-color: $dark-color;
+    color: $light-color;
+}
+
+.navbar {
+    background-color: $light-color;
+}
+.logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    &-img {
+        max-width: 100px;
+    }
+    h1 {
+        margin-left: 10px;
+        margin-bottom: 0;
+    }
+}

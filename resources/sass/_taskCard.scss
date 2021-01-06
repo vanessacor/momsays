@@ -1,11 +1,15 @@
-.card {
+.task-card {
     margin: 0 20px 30px;
-    max-width: 300px;
-    border: 2px solid $black;
+    width: 280px;
+    border-radius: 5px;
+    color: $dark-color;
+    background-color: $light-color;
 
     &-title {
         text-align: center;
-        padding: 10px;
+        padding: 5px 14px 0;
+        margin-bottom: 10px;
+        border-bottom: 2px solid $dark-color;
     }
 
     &-details {
@@ -25,54 +29,23 @@
         button {
             width: 80%;
             border: 2px solid $black;
+            border-radius: 5px;
             padding: 10px;
+            background-color: $danger-color;
         }
     }
 }
 
-.red {
-    .item-card,
-    .card-title,
-    .card-actions button {
-        background-color: $red;
+.even {
+    .task-card-title {
+        color: $light-color;
+        background-color: $highlight-color;
     }
 }
 
-.green {
-    .item-card,
-    .card-title,
-    .card-actions button {
-        background-color: $green;
-    }
-}
-
-.yellow {
-    .item-card,
-    .card-title,
-    .card-actions button {
-        background-color: $yellow;
-    }
-}
-.blue {
-    .item-card,
-    .card-title,
-    .card-actions button {
-        background-color: $blue;
-    }
-}
-
-.orange {
-    .item-card,
-    .card-title,
-    .card-actions button {
-        background-color: $orange;
-    }
-}
-
-.pink {
-    .item-card,
-    .card-title,
-    .card-actions button {
-        background-color: $pink;
+.odd {
+    .task-card-title {
+        color: $light-color;
+        background-color: $secondary-color;
     }
 }

@@ -13,9 +13,11 @@ class TaskCard extends Component
      */
 
     public $task;
-    public function __construct($task)
+    public $class;
+    public function __construct($task, $class)
     {
         $this->task = $task;
+        $this->class =$class;
     }
 
     /**

@@ -1,9 +1,3 @@
-@php
-$classList = ["red", "green", "blue", "yellow", "orange", "pink"];
-$randomIndex = array_rand($classList, 1);
-$class = $classList[$randomIndex];
-@endphp
-
 <div class="item {{$class}}">
     <section class="item-card">
         <div class="points">

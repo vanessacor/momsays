@@ -1,13 +1,17 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
+@import 'reset';
 // Variables
 @import 'variables';
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+@import 'layout';
 @import 'login';
 @import 'tasks';
 @import 'taskCard';
 @import 'userTaskItem';
+@import 'taskList';
+@import 'taskRow';
