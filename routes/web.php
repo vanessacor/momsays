@@ -29,6 +29,8 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('adult')->group(function () {
-    Route::get('/adults/create', [App\Http\Controllers\TaskController::class, 'create'])->name('create.task');
-    Route::post('/adults/create', [App\Http\Controllers\TaskController::class, 'store',])->name('save.task');
+    Route::get('/dashboard', [App\Http\Controllers\TaskController::class, 'dashboardIndex'])->name('dashboard.tasks');
+    Route::get('/dashboard/create', [App\Http\Controllers\TaskController::class, 'create'])->name('create.task');
+    Route::post('/dashboard/create', [App\Http\Controllers\TaskController::class, 'store',])->name('save.task');
+    Route::delete('/dashboard/{task}', [App\Http\Controllers\TaskController::class, 'destroy',])->name('delete.task');
 });

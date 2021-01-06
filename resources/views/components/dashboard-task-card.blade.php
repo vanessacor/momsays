@@ -1,12 +1,7 @@
-@php
-    $classList = ["red", "green", "blue", "yellow", "orange", "pink"];
-    $randomIndex = array_rand($classList, 1);
-    $class = $classList[$randomIndex];
-@endphp
-
-<article class="card {{$class}}" id=" {{$task->id}}}">
+<article id=" {{$task->id}}}">
 
     <h2 class="card-title">{{ $task->title}}</h2>
+
     <section class="card-details">
         <h4>What:</h4>
         <p>{{ $task->what}}</p>
@@ -16,13 +11,22 @@
         <p>{{ $task->points}}</p>
     </section>
     <section class="card-details">
+        <h4>User:</h4>
+    @if($task->user)
+        <p>{{ $task->user->name}}</p>
+    @else 
+    <p>Unassigned Task</p>
+    @endif
+    </section>
+    <section class="card-details">
         <h4>Deadline:</h4>
         <p>{{ $task->deadline->toFormattedDateString()}}</p>
     </section>
     <section class="card-actions">
-        <form action="{{route('tasks')}}/ {{ $task->id}}" method="post">
+        <form action="{{route('delete.task', $task)}}" method="post">
+            @method('DELETE')
             @csrf
-            <button type="submit" class="card-btn ">I'll do it</button>
+            <button type="submit" class="card-btn ">Delete</button>
 
         </form>
     </section>

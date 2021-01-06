@@ -18,6 +18,10 @@ class Task extends Model
         'isreviewed'
     ];
 
+    protected $dates = [
+        'deadline',
+    ];
+    
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -29,10 +33,10 @@ class Task extends Model
         $this->save();
     }
 
-    protected $dates = [
-        'deadline',
-    ];
+    // public function setDateAttribute($value)
+    // {
+    //     $this->attributes['date'] = (new Carbon($value))->format('d/m/y');
+    // }
 
-    protected $dateFormat = 'Y-m-d';
-
+   
 }

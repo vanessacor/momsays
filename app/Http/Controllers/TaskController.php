@@ -20,10 +20,15 @@ class TaskController extends Controller
     public function index()
     {
         $taskList = Task::doesntHave('user')->get();
-
         return view('tasks.tasks', ['taskList' => $taskList]);
     }
 
+
+    public function dashboardIndex()
+    {
+        $taskList = Task::all();
+        return view('dashboard.taskList', ['taskList' => $taskList]);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -113,6 +118,8 @@ class TaskController extends Controller
      */
     public function destroy(Task $task)
     {
-        //
+        $task->delete();
+        return redirect()->route('dashboard.tasks');
+
     }
 }

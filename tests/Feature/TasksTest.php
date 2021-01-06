@@ -19,7 +19,7 @@ class tasksTest extends TestCase
      *
      * @return void
      */
-    public function testRegisteredUsersCanSeeUnsignedTaskList()
+    public function testRegisteredUsersCanSeeUnassignedTaskList()
     {
         Task::factory(3)->create();
         $user = User::create([
