@@ -10,7 +10,7 @@ use App\Models\Task;
 use App\Models\User;
 use Tests\TestCase;
 
-class AdultTest extends TestCase
+class DashboardTest extends TestCase
 {
 
     use RefreshDatabase;

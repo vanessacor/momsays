@@ -1,21 +1,19 @@
 # MomSays
+Inspired by the child game "Simon Says"
+Problem: Mom is now working a lot, do not have time to do all the work. 
+Solution: This is a list of chores that need to be done to keep the family healthy, happy and organize.
+Mom create tasks that it will be displayed in a list. The kids then can assign themselve to the task.Once completed they can mark that task has done and earn points. 
 
 ## Description
 
-This a project to practice and learn Laravel.
-Problem: Mom is now working a lot, do not have time to do all the work.
-Solution: This is a list of chores that need to be done to keep the family healthy, happy and organize.
-The adults create a task that it will be display in a list. The kids then can assign themselve to the task. Once completed they can mark that task has done. If the adults are happy with it they can then put in archive.
-
+I've been learning Laravel at the Bootcamp and with my awesome team we built [this project](https://github.com/TeamEchoo/MeetEcho). 
+After we finished I wanted to practice and learn more about Laravel so decided to create a web applications to manage my house chores.
 
 ## Project Requirements
+My own requirements for this projects:
 
-- TDD
-- 
-- Simple UI using bootstrap
-
-## Reflection
-
+- Build with TDD
+- Apply Laravel best practices
 
 
 ## Screen Shots, Demo
@@ -23,7 +21,9 @@ The adults create a task that it will be display in a list. The kids then can as
 
 ## Built with
 
-- Frontend: Bootstrap.
+- [Laravel](https://laravel.com/)
+- [Mysql / Workbench](https://www.mysql.com/products/workbench/)
+- [Bootstrap](https://getbootstrap.com/) and [Sass](https://sass-lang.com/)
 
 ## Getting Started
 
