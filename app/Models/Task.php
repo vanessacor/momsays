@@ -33,7 +33,7 @@ class Task extends Model
         $this->save();
     }
 
-    public function getSortedList() 
+    public static function getSortedList() 
     {
         return $this->orderBy('deadline', 'asc')->get();
     }

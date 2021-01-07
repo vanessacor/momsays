@@ -52,10 +52,10 @@ class DashboardTest extends TestCase
         ];
 
         $adult = User::create([
-            'name' => 'lorena',
+            'name' => 'vanessa',
             'role' => 'adult',
             'points' => 0,
-            'email' => 'criado@gmail.com',
+            'email' => 'cat@misstee.com',
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
             'remember_token' => Str::random(10)
         ]);
@@ -69,16 +69,42 @@ class DashboardTest extends TestCase
             ]);
     }
 
+    public function testAdultUsersCanUpdateTask()
+    {
+        $this->withoutExceptionHandling();
+
+        $task = Task::factory()->create();
+        $adult = User::create([
+            'name' => 'vanessa',
+            'role' => 'adult',
+            'points' => 0,
+            'email' => 'cat@misstee.com',
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+            'remember_token' => Str::random(10)
+        ]);
+        $data = [
+            'title' => "Make Dinner",
+            'instructions' => "Make a vegetarian dinner",
+            'deadline' => "2021-12-11",
+            'points' => 12,
+        ];
+         $this->actingAs($adult)
+            ->put(route('update.task', $task), $data)
+            ->assertStatus(302);
+        $this->assertDatabaseHas('tasks', [
+            'title' => 'Make Dinner'
+        ]);
+    }
     public function testAdultUsersCanDeleteTask()
     {
         $this->withoutExceptionHandling();
 
         $task = Task::factory()->create();
         $adult = User::create([
-            'name' => 'lorena',
+            'name' => 'vanessa',
             'role' => 'adult',
             'points' => 0,
-            'email' => 'criado@gmail.com',
+            'email' => 'cat@misstee.com',
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
             'remember_token' => Str::random(10)
         ]);

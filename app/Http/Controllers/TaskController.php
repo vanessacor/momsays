@@ -101,13 +101,16 @@ class TaskController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Task  $task
+     * @param   \App\Http\Requests\StoreTaskRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Task $task)
+    public function update(Task $task, StoreTaskRequest $request)
     {
-        //
+        $request->validated();
+
+        $task->update($request->all());
+        return redirect()->route('dashboard.tasks');
     }
 
     /**
