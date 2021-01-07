@@ -44,7 +44,7 @@ class tasksTest extends TestCase
         $user = User::factory()->create();
         $task = $tasks[0];
         $response = $this->actingAs($user)
-            ->post(route('assignTask', $task->id))
+            ->post(route('task.assign_user', $task->id))
             ->assertStatus(302);
 
         $this->assertDatabaseHas('tasks', [
@@ -56,8 +56,8 @@ class tasksTest extends TestCase
         $tasks = Task::factory(3)->create();
         $user = User::factory()->create();
         $task = $tasks[2];
-        $this->actingAs($user)->post(route('assignTask', $task->id));
-        $response = $this->post(route('taskDone', $task->id))
+        $this->actingAs($user)->post(route('task.assign_user', $task->id));
+        $response = $this->post(route('task.mark_done', $task->id))
             ->assertStatus(302);
         $this->assertDatabaseHas('tasks', [
             'isCompleted' => true
@@ -68,9 +68,9 @@ class tasksTest extends TestCase
         $tasks = Task::factory(3)->create();
         $user = User::factory()->create();
         $task = $tasks[2];
-        $this->actingAs($user)->post(route('assignTask', $task->id));
-        $this->post(route('taskDone', $task->id));
-        $response = $this->post(route('taskDone', $task->id))
+        $this->actingAs($user)->post(route('task.assign_user', $task->id));
+        $this->post(route('task.mark_done', $task->id));
+        $response = $this->post(route('task.mark_done', $task->id))
             ->assertStatus(302);
         $this->assertDatabaseHas('tasks', [
             'isCompleted' => false

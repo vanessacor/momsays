@@ -26,7 +26,7 @@
         <nav class="navbar navbar-expand-md navbar-light shadow-sm">
             <div class="container">
                 <a class="logo navbar-brand" href="{{ url('/') }}">
-                <img class="logo-img" src="{{url('/images/logo.png')}}" alt="">
+                    <img class="logo-img" src="{{url('/images/logo.png')}}" alt="">
                     <h1>
                         Mom Says
                     </h1>
@@ -66,7 +66,7 @@
                         </li>
                         @endif
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('userTasks', Auth::user()->id ) }}">
+                            <a class="nav-link" href="{{ route('user.tasks', Auth::user()->id ) }}">
                                 My Tasks
                             </a>
                         </li>

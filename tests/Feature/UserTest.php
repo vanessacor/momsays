@@ -24,10 +24,10 @@ class userTest extends TestCase
         $tasks = Task::factory(1)->create();
         $user = User::factory()->create();
         $task = $tasks[0];
-        $this->actingAs($user)->post(route('assignTask', $task->id));
-        $response = $this->get(route('userTasks', $user->id))
+        $this->actingAs($user)->post(route('task.assign_user', $task->id));
+        $response = $this->get(route('user.tasks', $user->id))
             ->assertStatus(200)
-            ->assertViewIs('users.userTasks');
+            ->assertViewIs('users.user-tasks');
     }
 
     public function testRegisteredUsersGeTPointsWhenMarkTaskAsDone()
@@ -35,8 +35,8 @@ class userTest extends TestCase
         $tasks = Task::factory(1)->create();
         $user = User::factory()->create();
         $task = $tasks[0];
-        $this->actingAs($user)->post(route('assignTask', $task->id));
-        $this->post(route('taskDone', $task->id));
+        $this->actingAs($user)->post(route('task.assign_user', $task->id));
+        $this->post(route('task.mark_done', $task->id));
         $this->assertDatabaseHas('users', [
             'id' => $user->id,
             'points' => $task->points
@@ -55,10 +55,10 @@ class userTest extends TestCase
             'remember_token' => Str::random(10)
         ]);
         $task = $tasks[0];
-        $this->actingAs($user)->post(route('assignTask', $task->id));
-        $this->post(route('taskDone', $task->id));
+        $this->actingAs($user)->post(route('task.assign_user', $task->id));
+        $this->post(route('task.mark_done', $task->id));
 
-        $this->post(route('taskDone', $task->id));
+        $this->post(route('task.mark_done', $task->id));
         $this->assertDatabaseHas('users', [
             'id' => $user->id,
             'points' => 10

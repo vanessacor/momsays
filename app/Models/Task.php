@@ -33,10 +33,9 @@ class Task extends Model
         $this->save();
     }
 
-    // public function setDateAttribute($value)
-    // {
-    //     $this->attributes['date'] = (new Carbon($value))->format('d/m/y');
-    // }
-
+    public function getSortedList() 
+    {
+        return $this->orderBy('deadline', 'asc')->get();
+    }
 
 }

@@ -6,7 +6,7 @@
         </div>
         <h3>{{$task->title}}</h3>
 
-        <form action="{{route('taskDone', $task)}}" method="post" class="toggle">
+        <form action="{{route('task.mark_done', $task)}}" method="post" class="toggle">
             @csrf
             <button class="toggle-button @if($task->isCompleted) toggle-button-done  @else toggle-button-completed @endif" type="submit">
                 <span className="circle"></span>

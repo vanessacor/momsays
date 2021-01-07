@@ -35,7 +35,7 @@ class AdultTest extends TestCase
         $response = $this->actingAs($adult)
             ->get(route('dashboard.tasks'));
         $response->assertStatus(200)
-            ->assertViewIs('dashboard.taskList')
+            ->assertViewIs('dashboard.task-list')
             ->assertViewHas('taskList');
     }
 

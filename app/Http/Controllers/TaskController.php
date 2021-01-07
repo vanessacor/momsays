@@ -27,7 +27,7 @@ class TaskController extends Controller
     public function dashboardIndex()
     {
         $taskList = Task::orderBy('deadline', 'asc')->get();
-        return view('dashboard.taskList', ['taskList' => $taskList]);
+        return view('dashboard.task-list', ['taskList' => $taskList]);
     }
     /**
      * Show the form for creating a new resource.
@@ -41,7 +41,7 @@ class TaskController extends Controller
 
         $task = Task::find($id);
         $user->addTask($task);
-        return redirect()->route('userTasks', $user->id);
+        return redirect()->route('user.tasks', $user->id);
     }
 
     public function toggleCompletion(Request $request, Task $task)
@@ -60,7 +60,7 @@ class TaskController extends Controller
 
     public function create()
     {
-        return view('tasks.taskForm');
+        return view('tasks.task-create');
     }
 
     /**
@@ -120,6 +120,5 @@ class TaskController extends Controller
     {
         $task->delete();
         return redirect()->route('dashboard.tasks');
-
     }
 }
