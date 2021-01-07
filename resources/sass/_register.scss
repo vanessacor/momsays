@@ -1,36 +1,30 @@
-.login-card {
+.register-card {
     border: 2px solid;
     background-color: $light-color;
     max-width: 300px;
     margin: 0 auto;
     border: none;
     border-radius: 5px;
-    
+
     &-header {
         margin-bottom: 40px;
+        text-align: center;
         border-radius: 5px;
         padding: 5px;
         background-color: $secondary-color;
-        text-align: center;
         color: $light-color;
     }
 
-    &-body{
+    &-body {
         margin-bottom: 40px;
         padding: 10px;
         color: $dark-color;
-      
     }
 
     &-input {
         margin-bottom: 20px;
     }
 
-    .password {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
     &-buttons {
         display: flex;
         flex-direction: column;
@@ -39,23 +33,11 @@
 
         button {
             background-color: $secondary-color;
-            color: $light-color;
+            border: none;
         }
 
         button:hover {
             background-color: $dark-color;
-            color: $light-color;
-        }
-    }
-    &-register {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        color: $dark-color;
-    
-        a {
-            margin-left: 5px;
         }
     }
 }
-

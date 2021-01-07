@@ -10941,48 +10941,110 @@ body {
   margin-bottom: 0;
 }
 
-.title {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.login {
+.login-card {
   border: 2px solid;
+  background-color: #fffffe;
+  max-width: 300px;
+  margin: 0 auto;
+  border: none;
+  border-radius: 5px;
 }
 
-.login form {
+.login-card-header {
   margin-bottom: 40px;
-}
-
-.login-title {
-  background-color: #ff8906;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: #f25f4c;
   text-align: center;
+  color: #fffffe;
 }
 
-.login-password {
+.login-card-body {
+  margin-bottom: 40px;
+  padding: 10px;
+  color: #0f0e17;
+}
+
+.login-card-input {
+  margin-bottom: 20px;
+}
+
+.login-card .password {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.login-buttons {
+.login-card-buttons {
   display: flex;
   flex-direction: column;
   width: 100%;
+  margin-bottom: 40px;
 }
 
-.login-buttons button {
-  background-color: #ff8906;
+.login-card-buttons button {
+  background-color: #f25f4c;
+  color: #fffffe;
 }
 
-.register {
+.login-card-buttons button:hover {
+  background-color: #0f0e17;
+  color: #fffffe;
+}
+
+.login-card-register {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  color: #0f0e17;
 }
 
-.register a {
+.login-card-register a {
   margin-left: 5px;
+}
+
+.register-card {
+  border: 2px solid;
+  background-color: #fffffe;
+  max-width: 300px;
+  margin: 0 auto;
+  border: none;
+  border-radius: 5px;
+}
+
+.register-card-header {
+  margin-bottom: 40px;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: #f25f4c;
+  color: #fffffe;
+}
+
+.register-card-body {
+  margin-bottom: 40px;
+  padding: 10px;
+  color: #0f0e17;
+}
+
+.register-card-input {
+  margin-bottom: 20px;
+}
+
+.register-card-buttons {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.register-card-buttons button {
+  background-color: #f25f4c;
+  border: none;
+}
+
+.register-card-buttons button:hover {
+  background-color: #0f0e17;
 }
 
 .title {
