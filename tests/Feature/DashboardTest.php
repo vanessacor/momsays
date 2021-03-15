@@ -24,10 +24,10 @@ class DashboardTest extends TestCase
         $this->withoutExceptionHandling();
         Task::factory(3)->create();
         $adult = User::create([
-            'name' => 'lorena',
+            'name' => 'vanessa',
             'role' => 'adult',
             'points' => 0,
-            'email' => 'criado@gmail.com',
+            'email' => 'misstee@gmail.com',
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
             'remember_token' => Str::random(10)
         ]);
@@ -38,8 +38,6 @@ class DashboardTest extends TestCase
             ->assertViewIs('dashboard.task-list')
             ->assertViewHas('taskList');
     }
-
-
 
 
     public function testAdultUsersCanCreateTask()
@@ -60,13 +58,40 @@ class DashboardTest extends TestCase
             'remember_token' => Str::random(10)
         ]);
 
-        $response = $this->actingAs($adult)
+       $this->actingAs($adult)
             ->post(route('save.task', $data))
             ->assertStatus(302);
         $this->assertDatabaseCount('tasks', 1)
             ->assertDatabaseHas('tasks', [
                 'title' => "Make Dinner"
             ]);
+    }
+
+    public function testNonAdultUsersCanNotCreateTask()
+    {
+        $this->withoutExceptionHandling();
+        $data = [
+            'title' => "Make Dinner",
+            'instructions' => "Make a vegetarian dinner",
+            'deadline' => "2021-12-11",
+            'points' => 12,
+        ];
+
+        $user = User::create([
+            'name' => 'vanessa',
+            'role' => 'child',
+            'points' => 0,
+            'email' => 'cat@misstee.com',
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+            'remember_token' => Str::random(10)
+        ]);
+
+       $this->actingAs($user)
+            ->post(route('save.task', $data))
+            ->assertStatus(302)
+            ->assertRedirect('tasks');
+        $this->assertDatabaseCount('tasks', 0);
+            
     }
 
     public function testAdultUsersCanUpdateTask()
@@ -95,6 +120,7 @@ class DashboardTest extends TestCase
             'title' => 'Make Dinner'
         ]);
     }
+
     public function testAdultUsersCanDeleteTask()
     {
         $this->withoutExceptionHandling();
@@ -109,7 +135,7 @@ class DashboardTest extends TestCase
             'remember_token' => Str::random(10)
         ]);
 
-        $response = $this->actingAs($adult)
+        $this->actingAs($adult)
             ->delete(route('delete.task', $task->id))
             ->assertStatus(302);
         $this->assertDatabaseCount('tasks', 0);
